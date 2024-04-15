@@ -8,7 +8,7 @@ form.addEventListener("submit", event => {
   const emailTrimmed = emailInfo.value.trim()
   const passTrimmed = passInfo.value.trim()
 
-  if (emailTrimmed != "" || passTrimmed != "") {
+  if (emailTrimmed !== "" && passTrimmed !== "") {
     const info = {
       email : emailTrimmed,
       password : passTrimmed

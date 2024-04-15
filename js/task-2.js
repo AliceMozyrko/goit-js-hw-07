@@ -26,18 +26,24 @@ const images = [
 ];
 
 function createGallery(images) {
-  const galleryItems = document.querySelector(".gallery")
-  images.forEach(image => {
-    const liItem = document.createElement("li")
-    const imgEl = document.createElement("img")
-    imgEl.src = image.url
-    imgEl.alt = image.alt
-    imgEl.style.width = "300px"
-    imgEl.style.height = "auto"
-    imgEl.style.borderRadius = "10px"
-    liItem.append(imgEl)
-    galleryItems.append(liItem)
-  });
-}
-createGallery(images) 
+  const galleryItems = document.querySelector(".gallery");
+  const fragment = document.createDocumentFragment(); // Створюємо фрагмент для оптимального додавання елементів
 
+  images.forEach(image => {
+    const liItem = document.createElement("li");
+    const imgEl = document.createElement("img");
+
+    imgEl.src = image.url;
+    imgEl.alt = image.alt;
+    imgEl.style.width = "300px";
+    imgEl.style.height = "auto";
+    imgEl.style.borderRadius = "10px";
+
+    liItem.append(imgEl);
+    fragment.appendChild(liItem); // 
+  });
+
+  galleryItems.appendChild(fragment); 
+}
+
+createGallery(images);
